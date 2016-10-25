@@ -1,6 +1,6 @@
 // This program prints a line from that song you know
-// Author: <Your name here>
-// Date: <The date here>
+// Author: <Travis Allen>
+// Date: <25OCT16>
 
 import javax.swing.*;
 public class TwelveDays
@@ -8,9 +8,6 @@ public class TwelveDays
    public static void main (String args[]) 
    {
       int choice;
-      String entry;
-      double total = 0;
-      double price;
 	  String suffix;
 	  String thing;
 	  
@@ -18,48 +15,66 @@ public class TwelveDays
       choice = getChoice();
 
 	  // convert to switch
-      if (choice == 12)
-           thing = "Twelve drummers drumming";
-      else if (choice == 11)
-           thing = "Eleven pipers piping";
-      else if (choice == 10)
+      switch (choice)
+	  {
+		case 12:
+			thing = "Twelve drummers drumming";
+			break;
+		case 11:			
+			thing = "Eleven pipers piping";
+			break;
+		case 10:
            thing = "Ten lords a-leaping";
-      else if (choice == 9)
+           break;
+		case 9:
            thing = "Nine ladies dancing";
-      else if (choice == 8)
+           break;
+		case 8:
            thing = "Eight maids a-milking";
-      else if (choice == 7)
+           break;
+		case 7:
            thing = "Seven swans a-swimming";
-      else if (choice == 6)
+           break;
+		case 6:
            thing = "Six geese a-laying";
-      else if (choice == 5)
+           break;
+		case 5:
            thing = "Five golden rings";
-      else if (choice == 4)
+           break;
+		case 4:
            thing = "Four calling birds";
-      else if (choice == 3)
+           break;
+		case 3:
            thing = "Three French hens";
-      else if (choice == 2)
+           break;
+		case 2:
            thing = "Two turtle doves and";
-      else if (choice == 1)
+           break;
+		case 1:
            thing = "A partridge in a pear tree";
-      else
+           break;
+		default:
            thing = "Invalid choice";
+	  }
 	   
 	  // This is ugly... let's also convert it to a switch... this is just a little trickier
-      if(choice >= 4)
-         suffix = "th";
-      else
-        if(choice == 3)
-          suffix = "rd";
-        else
-          if(choice == 2)
-            suffix = "nd";
-          else
+      switch (choice) 
+	  {
+		case 4: case 5: case 6: case 7: case 8: case 9: case 10: case 11: case 12:
+			suffix = "th";
+			break;
+        case 3:
+			suffix = "rd";
+			break;
+        case 2:
+			suffix = "nd";
+			break;
+        default:
             suffix = "st";
-		
-	  System.out.println("\nOn the " + choice + suffix +
-          " day of Christmas\n" +
-          "My true love gave to me" + thing);
+	  }
+		  System.out.println("\nOn the " + choice + suffix +
+				  " day of Christmas\n" +
+				  "My true love gave to me \n" + thing);
    }
    
    // custom method to get user input with GUI. Returns their day choice.
